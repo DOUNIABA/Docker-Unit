@@ -57,13 +57,13 @@ const signin=(req,res)=>{
           ls('token',token)
           res.status(200).json({token:ls('token'),role:payload.roleId.name})
         }else{
-          res.send('invalid')
+          res.status(400).send('invalid count')
         }
       }).catch(()=>{
-          res.send('password not hashed')
+        res.status(400).send('password not hashed')
       })
 }else{
-  res.send('not found')
+  res.status(400).send('invalid informations')
 }
   })
 }
