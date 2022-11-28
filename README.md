@@ -26,19 +26,21 @@ docker network create livraison-marhaba-net
 ```
 
 
-
 ### Executez un container basé sur l'image mongo:
-
-docker container run -d --name livraison-marhaba-db -v livraison-marhaba-db:/data/db --network livraison-marhaba-net mongo
+```Bash
+docker container run -d --name livraison-marhaba-db -v livraison-marhaba-db:/data/db --network livraison-marhaba-net mongo 
+```
 
 ​
 ### Création  d'une image nommée livraison-marhaba-docker:test
-
+```Bash
 docker build -t livraison-marhaba-docker:test
+```
 
 ### Exécutez un container basé sur cette image 
-
+```Bash
 docker container run -d --name hotel-booking -v ${pwd}:/app -v /app/node_modules --network hotel-booking-net -p 80:80 hotel-booking-docker:test
+```
 
 
 ## Part Frontend
@@ -60,10 +62,11 @@ CMD ["npm","start"]
 ```
 
 ### Créer une image et nommée livraison-marhaba-docker:test
-
+```Bash
 docker build -t livraison-marhaba-docker:test
-
+```
 
 ### Exécutez un container basé sur cette image 
-
+```Bash
 docker container run -d --name hotel-booking -v ${pwd}:/app -v /app/node_modules --network hotel-booking-net -p 80:80 hotel-booking-docker:test
+```
