@@ -2,7 +2,7 @@
 ## Part Backend
 -----------------------------------------
 ### Create a Docker File 
-
+```Python
 FROM node:16
 
 WORKDIR /app
@@ -16,6 +16,7 @@ COPY . .
 EXPOSE 4000
 
 CMD ["node","index.js"]
+```
 
 
 ### Création d'un network
@@ -23,6 +24,7 @@ CMD ["node","index.js"]
 ```Bash
 docker network create livraison-marhaba-net
 ```
+
 
 
 ### Executez un container basé sur l'image mongo:
@@ -42,6 +44,8 @@ docker container run -d --name hotel-booking -v ${pwd}:/app -v /app/node_modules
 ## Part Frontend
 ----------------------------------------------------
 ### Create a Docker File
+
+```Python
 FROM node:16
 
 WORKDIR /app
@@ -53,6 +57,7 @@ RUN npm install
 EXPOSE 3000
 
 CMD ["npm","start"]
+```
 
 ### Créer une image et nommée livraison-marhaba-docker:test
 
