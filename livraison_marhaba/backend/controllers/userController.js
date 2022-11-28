@@ -1,3 +1,4 @@
+
 const User=require('../models/userModel')
 const Role=require('../models/roleModel')
 const bcrypt=require('bcryptjs')
@@ -24,6 +25,7 @@ const signup = async (req,res)=>{
       return  res.status(400).send('not created') 
       res.status(500).send('created')
 }
+
   const verifyEmail = async (req,res) => {
     const token = req.params.token
      const vrf= jwt.verify(token,process.env.SECRET)
