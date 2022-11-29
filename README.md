@@ -24,17 +24,17 @@ CMD ["node","index.js"]
 docker network create livraison-marhaba-net
 ```
 
-### Executez un container basé sur l'image mongo:
+### Executez un db_container basé sur l'image mongo:
 ```Bash
 docker container run -d --name livraison-marhaba-db -v livraison-marhaba-db:/data/db --network livraison-marhaba-net mongo 
 ```
 
-### Création  d'une image nommée livraison-marhaba-docker:test
+### Création d'une image nommée livraison-marhaba-docker:test
 ```Bash
 docker build -t livraison-marhaba-docker:test .
 ```
 
-### Exécutez un container basé sur cette image 
+### Exécutez un container basé sur l'image de backend
 ```Bash
 docker container run -d --name livraison-marhaba -v ${pwd}:/app -v /app/node_modules --network livraison-marhaba-net -p 4000:4000 livraison-marhaba-docker:test
 ```

@@ -8,7 +8,7 @@ const ls=require('local-storage')
 const {sendEmail} =require('../config/nodemail')
 
 const signup = async (req,res)=>{
-
+  
      const {body}=req
      const user = await User.findOne({email:body.email})
        if(user) 
@@ -59,7 +59,7 @@ const signin=(req,res)=>{
           ls('token',token)
           res.status(200).json({token:ls('token'),role:payload.roleId.name})
         }else{
-          res.status(400).send('invalid count')
+          res.status(400).send('invalid account')
         }
       }).catch(()=>{
         res.status(400).send('password not hashed')
